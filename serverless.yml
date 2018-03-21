@@ -8,6 +8,7 @@ custom:
   stage: "${opt:stage, env:SLS_STAGE, 'dev'}"
   profile: "${opt:aws-profile, env:AWS_PROFILE, env:AWS_DEFAULT_PROFILE, 'default'}"
   siteName: <SITE NAME>
+  hostedZoneName: <HOSTED ZONE NAME>
   # Additional region zone IDs and DNS names fouind here:
   # https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
   aliasHostedZoneId: Z3AQBSTGFYJSTF    # us-east-1
@@ -69,7 +70,7 @@ resources:
         AliasTarget:
           DNSName: ${self:custom.aliasDNSName}
           HostedZoneId: ${self:custom.aliasHostedZoneId}
-        HostedZoneName: ${self:custom.siteName}.
+        HostedZoneName: ${self:custom.hostedZoneName}.
         Name:
           Ref: StaticSite
         Type: 'A'
