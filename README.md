@@ -10,7 +10,7 @@ This will create
 * Route53 Record
 
 ## Configuration
-Anything under `custom` may be altered.  Additionally, take care to replace any values enclosed in `< >`.
+Anything under `custom` in [serverless.yml](./serverless.yml) may be altered.  Additionally, take care to replace any values enclosed in `< >`.
 
 All static content should be placed in the `static/` directory.
 
@@ -24,8 +24,8 @@ npm install
 
 ## Outputs
 
-StaticSiteS3BucketName: Name of S3 bucket.
+__StaticSiteS3BucketName:__ Name of S3 bucket.
 
-StaticSiteS3BucketDomainName: Domain under which website resides.
+__StaticSiteS3BucketDomainName:__ Domain under which website resides.
 
-StaticSiteS3BucketWebsiteURL: URL of the static website.
+__StaticSiteS3BucketWebsiteURL:__ URL of the static website.
