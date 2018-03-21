@@ -5,6 +5,8 @@ plugins:
   - serverless-s3-sync
 
 custom:
+  stage: "${opt:stage, env:SLS_STAGE, 'dev'}"
+  profile: "${opt:aws-profile, env:AWS_PROFILE, env:AWS_DEFAULT_PROFILE, 'default'}"
   siteName: <SITE NAME>
   # Additional region zone IDs and DNS names fouind here:
   # https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
@@ -21,7 +23,8 @@ custom:
 provider:
   name: aws
   runtime: nodejs6.10
-  stage: prod
+  profile: ${self:custom.profile}
+  stage: ${self:custom.stage}
   stackTags:
     serverless:servess: ${self:service}
 
